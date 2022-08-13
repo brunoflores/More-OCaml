@@ -1,4 +1,11 @@
 (library
  (name more_ocaml)
  (inline_tests)
+ (modules bench folds lazy sets)
+ (libraries unix)
  (preprocess (pps ppx_inline_test)))
+
+(executable
+ (name sets_bench_unix)
+ (modules sets_bench_unix)
+ (libraries more_ocaml))
