@@ -1,0 +1,3 @@
+```sh
+$ dune test
+```
