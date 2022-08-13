@@ -32,3 +32,10 @@ let cubes = lfilter (fun x -> x mod 5 = 0) (lmap (fun x -> x * x * x) (lseq 1))
    4096, 4913, 5832, 6859, 8000, 9261, 10648, 12167, 13824, 15625, 17576,
    19683, 21952, 24389, 27000 *)
 let%test _ = ltake cubes 5 = [ 125; 1000; 3375; 8000; 15625 ]
+
+let rec mkprimes (Cons (h, tf)) =
+  Cons (h, fun () -> mkprimes (lfilter (fun x -> x mod h <> 0) (tf ())))
+
+let primes = mkprimes (lseq 2)
+
+let%test _ = ltake primes 5 = [ 2; 3; 5; 7; 11 ]
