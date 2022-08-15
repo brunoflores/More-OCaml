@@ -1,4 +1,30 @@
 (executable
  (public_name more_ocaml)
  (name main)
+ (modules main)
  (libraries more_ocaml))
+
+(executable
+ (name mods)
+ (modules mods))
+
+(executable
+ (name bank)
+ (modules bank))
+
+(executable
+ (name printers)
+ (modules printers))
+
+(executable
+ (name prio)
+ (modules prio))
+
+(executable
+ (name functors)
+ (modules functors))
+
+(executable
+ (name monads)
+ (modules monad monads)
+ (modules_without_implementation monad))
